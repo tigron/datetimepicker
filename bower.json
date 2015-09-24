@@ -18,7 +18,8 @@
     "datetimepicker",
     "bootstrap",
     "date",
-    "time"
+    "time",
+    "tigron"
   ],
   "license": "MIT",
   "ignore": [
