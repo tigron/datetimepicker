@@ -1,5 +1,5 @@
 (function ($) {
-	$.fn.tigron-datetimepicker = function (options) {
+	$.fn.tigronDatetimepicker = function (options) {
 		if (typeof options.postFormat === 'undefined') {
 			options.postFormat = options.format;
 		}
@@ -34,4 +34,3 @@
 		})
 	};
 })(jQuery);
-

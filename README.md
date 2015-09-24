@@ -9,7 +9,7 @@ extension will create a hidden input field that contains the selected datetime
 in the format set in 'postFormat'.
 This makes it easier to parse the datetime after POST.
 
-	$('.datepicker').tigron-datetimepicker({
+	$('.datepicker').tigronDatetimepicker({
 		'format': 'DD/MM/YYYY HH:mm',
 		'extraFormats': [ 'YYYY-MM-DD HH:mm' ],
 		'postFormat': 'YYYY-MM-DD HH:mm'
@@ -26,11 +26,12 @@ Installation with bower:
 
 include the following line in your project:
 
-  `<script src="/bower_components/tigron-datetimepicker/js/tigron-datetimepicker.js"></script>`
+	<script src="/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/tigron-datetimepicker/js/tigron-datetimepicker.js"></script>
 
 Activate:
 
-	$('.datepicker').tigron-datetimepicker({
+	$('.datepicker').tigronDatetimepicker({
 		'format': 'DD/MM/YYYY HH:mm',
 		'extraFormats': [ 'YYYY-MM-DD HH:mm' ],
 		'postFormat': 'YYYY-MM-DD HH:mm'
