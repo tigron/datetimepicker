@@ -1,0 +1,31 @@
+{
+  "name": "tigron-datetimepicker",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tigron/datetimepicker",
+  "authors": [
+    "Christophe Gosiau <christophe.gosiau@tigron.be>"
+  ],
+  "description": "Extension for eonasdan-bootstrap-datetimepicker to set 'postFormat'",
+  "main": "js/tigron-datetimepicker.js",
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": ">=4.*"
+  },
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "eonasdan",
+    "datetimepicker",
+    "bootstrap",
+    "date",
+    "time"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
