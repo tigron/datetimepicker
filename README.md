@@ -25,6 +25,7 @@ Installation with bower:
   `bower install tigron-datetimepicker`
 
 include the following line in your project:
+
 	<link rel="stylesheet" href="/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 
 	<script src="/moment/min/moment.min.js"></script>
