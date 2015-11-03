@@ -23,7 +23,12 @@
 		$(this).datetimepicker(cleaned_options).on('dp.change', function(e) {
 			input = getInput( $(this) );
 			name = $(input).attr('data-old-name');
-			$('input[name="' + name + '"]').val(e.date.format(options.postFormat));
+			if (e.date === false) {
+				value = '';
+			} else {
+				value = e.date.format(options.postFormat);
+			}
+			$('input[name="' + name + '"]').val(value);
 		});
 
 		$.each($(this), function(element, value) {
