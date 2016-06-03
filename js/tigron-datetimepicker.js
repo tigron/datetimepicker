@@ -22,14 +22,16 @@
 
 		$(this).datetimepicker(cleaned_options).on('dp.change', function(e) {
 			input = getInput( $(this) );
-			name = $(input).attr('data-old-name');
+			classname = $(input).attr('data-hidden-class');
 			if (e.date === false) {
 				value = '';
 			} else {
 				value = e.date.format(options.postFormat);
 			}
-			$('input[name="' + name + '"]').val(value);
+			$('input.' + classname).val(value);
 		});
+
+		var count = 1;
 
 		$.each($(this), function(element, value) {
 			input = getInput($(this));
@@ -40,9 +42,10 @@
 				value = $(this).data('DateTimePicker').date().format(options.postFormat);
 			}
 
-			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ) );
-			$(input).attr('data-old-name', $(input).attr('name'));
+			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ).addClass('datetimepicker_' + count) );
+			$(input).attr('data-hidden-class', 'datetimepicker_' + count);
 			$(input).removeAttr('name');
+			count++;
 		})
 	};
 })(jQuery);
