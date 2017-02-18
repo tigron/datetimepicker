@@ -40,6 +40,7 @@
 				value = '';
 			} else {
 				value = $(this).data('DateTimePicker').date().format(options.postFormat);
+				$(this).data('DateTimePicker').viewDate($(this).data('DateTimePicker').date());
 			}
 
 			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ).addClass('datetimepicker_' + count) );
