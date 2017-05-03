@@ -31,7 +31,7 @@
 			$('input.' + classname).val(value);
 		});
 
-		var count = 1;
+		var count = $('input[class^="datetimepicker_"]').length + 1;
 
 		$.each($(this), function(element, value) {
 			input = getInput($(this));
