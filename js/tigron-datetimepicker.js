@@ -8,7 +8,7 @@
 				input = $(element);
 			} else {
 				input = $(element).find($(element).data('DateTimePicker').datepickerInput());
-				if (input.size() === 0) {
+				if (input.length === 0) {
 					input = $(element).find('input[type=text]');
 				} else if (!input.is('input')) {
 					throw new Error('CSS class "' + $(element).data('DateTimePicker').datepickerInput() + '" cannot be applied to non input element');
