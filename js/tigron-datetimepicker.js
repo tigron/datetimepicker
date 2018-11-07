@@ -43,6 +43,10 @@
 				$(this).data('DateTimePicker').viewDate($(this).data('DateTimePicker').date());
 			}
 
+			if ($(input).next().length > 0) {
+				return true;
+			}
+
 			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ).addClass('datetimepicker_' + count) );
 			$(input).attr('data-hidden-class', 'datetimepicker_' + count);
 			$(input).removeAttr('name');
