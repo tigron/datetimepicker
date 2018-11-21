@@ -43,7 +43,7 @@
 				$(this).data('DateTimePicker').viewDate($(this).data('DateTimePicker').date());
 			}
 
-			if ($(input).next().length > 0) {
+			if ($(input).next().length > 0 && $(input).next().is('[class*="datetimepicker_"]')) {
 				return true;
 			}
 
