@@ -20,7 +20,7 @@
 		cleaned_options = jQuery.extend(true, {}, options);
 		delete cleaned_options.postFormat;
 
-		$(this).addClass('datetimepicker-input').datetimepicker(cleaned_options).on('change.datetimepicker', function(e) {
+		$(this).addClass('datetimepicker-input').attr('data-toggle', 'datetimepicker').datetimepicker(cleaned_options).on('change.datetimepicker', function(e) {
 			input = getInput( $(this) );
 			classname = $(input).attr('data-hidden-class');
 
@@ -35,7 +35,6 @@
 		var count = $('input[class^="datetimepicker_"]').length + 1;
 
 		$.each($(this), function(element, value) {
-			console.log(value);
 			input = getInput($(this));
 
 			if ($(this).data('datetimepicker').date() === null) {
