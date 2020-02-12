@@ -1,5 +1,5 @@
 # Tigron Datetimepicker extension
-This in an extension to the [Eonasdan Datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker/)
+This in an extension to the [Tempus Datetimepicker](https://github.com/tempusdominus/bootstrap-4/)
 plugin.
 
 ## Description
@@ -15,21 +15,26 @@ This makes it easier to parse the datetime after POST.
 		'postFormat': 'YYYY-MM-DD HH:mm'
 	});
 
-All other options remain the same. Please check the [Eonasdan Datetimepicker manual](http://eonasdan.github.io/bootstrap-datetimepicker/)
+All other options remain the same. Please check the [Eonasdan Datetimepicker manual](https://github.com/tempusdominus/bootstrap-4/)
 for more instructions
+
+This exention relies on a fix which is offered as a pull request to the maintainers
+of tempusdominus: https://github.com/tempusdominus/bootstrap-4/issues/271
+However, the PR is not yet accepted. Therefore a patched version of
+tempus dominus is integrated in this repository.
 
 ## Installation
 
 Installation with bower:
 
-  `bower install tigron-datetimepicker`
+  `bower install tigron-datetimepicker#bootstrap4`
 
 include the following line in your project:
 
-	<link rel="stylesheet" href="/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="/tigron-datetimepicker/tempusdominus/tempusdominus-bootstrap-4.min.css" />
 
 	<script src="/moment/min/moment.min.js"></script>
-	<script src="/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/tigron-datetimepicker/tempusdominus/tempusdominus-bootstrap-4.min.js"></script>
 	<script src="/tigron-datetimepicker/js/tigron-datetimepicker.js"></script>
 
 Activate:
