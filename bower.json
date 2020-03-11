@@ -8,7 +8,7 @@
   "description": "Extension for eonasdan-bootstrap-datetimepicker to set 'postFormat'",
   "main": "js/tigron-datetimepicker.js",
   "dependencies": {
-    "tempusdominus-bootstrap-4": ">=5*"
+    "tempusdominus-bootstrap-4": ">=5.*"
   },
   "moduleType": [
     "globals"
