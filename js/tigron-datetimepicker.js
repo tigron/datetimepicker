@@ -33,7 +33,7 @@
 			input = getInput( $(this) );
 			classname = $(input).attr('data-hidden-class');
 
-			if (e.date === false) {
+			if (e.date === false || e.date == undefined) {
 				value = '';
 			} else {
 				value = e.date.format(options.postFormat);
