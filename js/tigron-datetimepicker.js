@@ -1,5 +1,6 @@
 (function ($) {
 	$.fn.tigronDatetimepicker = function (options) {
+		console.log($(this).val());
 		if (typeof options.postFormat === 'undefined') {
 			options.postFormat = options.format;
 		}
@@ -20,15 +21,17 @@
 		cleaned_options = jQuery.extend(true, {}, options);
 		delete cleaned_options.postFormat;
 
-		$(this).addClass('datetimepicker-input').attr('data-toggle', 'datetimepicker')
-		value = $(this).val();
-		if (typeof value !== 'undefined') {
-			$(this).attr('data-value', value);
-			$(this).removeAttr('value');
-			cleaned_options['defaultDate'] = value;
-		}
+		$.each($(this), function(element, value) {
+			$(this).addClass('datetimepicker-input').attr('data-toggle', 'datetimepicker')
+			value = $(this).val();
+			if (typeof value !== 'undefined') {
+				$(this).attr('data-value', value);
+				$(this).removeAttr('value');
+				cleaned_options['defaultDate'] = value;
+			}
+			$(this).datetimepicker(cleaned_options)
+		});
 
-		$(this).datetimepicker(cleaned_options)
 		$(this).on('change.datetimepicker', function(e) {
 			input = getInput( $(this) );
 			classname = $(input).attr('data-hidden-class');
