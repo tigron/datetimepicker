@@ -1,6 +1,5 @@
 (function ($) {
 	$.fn.tigronDatetimepicker = function (options) {
-		console.log($(this).val());
 		if (typeof options.postFormat === 'undefined') {
 			options.postFormat = options.format;
 		}
