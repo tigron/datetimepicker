@@ -20,10 +20,22 @@
 		cleaned_options = jQuery.extend(true, {}, options);
 		delete cleaned_options.postFormat;
 
-		$(this).datetimepicker(cleaned_options).on('dp.change', function(e) {
+		$.each($(this), function(element, value) {
+			$(this).addClass('datetimepicker-input').attr('data-toggle', 'datetimepicker')
+			value = $(this).val();
+			if (typeof value !== 'undefined') {
+				$(this).attr('data-value', value);
+				$(this).removeAttr('value');
+				cleaned_options['defaultDate'] = value;
+			}
+			$(this).datetimepicker(cleaned_options)
+		});
+
+		$(this).on('change.datetimepicker', function(e) {
 			input = getInput( $(this) );
 			classname = $(input).attr('data-hidden-class');
-			if (e.date === false) {
+
+			if (e.date === false || e.date == undefined) {
 				value = '';
 			} else {
 				value = e.date.format(options.postFormat);
@@ -36,11 +48,11 @@
 		$.each($(this), function(element, value) {
 			input = getInput($(this));
 
-			if ($(this).data('DateTimePicker').date() === null) {
+			if ($(this).data('datetimepicker').date() === null) {
 				value = '';
 			} else {
-				value = $(this).data('DateTimePicker').date().format(options.postFormat);
-				$(this).data('DateTimePicker').viewDate($(this).data('DateTimePicker').date());
+				value = $(this).data('datetimepicker').date().format(options.postFormat);
+				$(this).data('datetimepicker').viewDate($(this).data('datetimepicker').date());
 			}
 
 			if ($(input).next().length > 0 && $(input).next().is('[class*="datetimepicker_"]')) {
