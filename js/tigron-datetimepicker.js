@@ -21,6 +21,7 @@
 		delete cleaned_options.postFormat;
 
 		$.each($(this), function(element, value) {
+
 			$(this).addClass('datetimepicker-input').attr('data-toggle', 'datetimepicker')
 			value = $(this).val();
 			if (typeof value !== 'undefined') {
@@ -59,7 +60,13 @@
 				return true;
 			}
 
-			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ).addClass('datetimepicker_' + count) );
+			$(input).after(
+				$('<input>')
+				   .attr('type', 'hidden')
+				   .attr('autocomplete', 'off')
+				   .attr('name', $(input).attr('name')).val( value )
+				   .addClass('datetimepicker_' + count)
+			);
 			$(input).attr('data-hidden-class', 'datetimepicker_' + count);
 			$(input).removeAttr('name');
 			count++;
