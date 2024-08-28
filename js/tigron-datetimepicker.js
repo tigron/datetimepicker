@@ -1,56 +1,79 @@
-(function ($) {
-	$.fn.tigronDatetimepicker = function (options) {
-		if (typeof options.postFormat === 'undefined') {
-			options.postFormat = options.format;
-		}
-		var getInput = function(element) {
-			if ($(element).is('input')) {
-				input = $(element);
-			} else {
-				input = $(element).find($(element).data('DateTimePicker').datepickerInput());
-				if (input.length === 0) {
-					input = $(element).find('input[type=text]');
-				} else if (!input.is('input')) {
-					throw new Error('CSS class "' + $(element).data('DateTimePicker').datepickerInput() + '" cannot be applied to non input element');
-				}
-			}
-			return input;
+function tigronDatetimepicker(selector, options) {
+	if (typeof options.postFormat === 'undefined') {
+		options.postFormat = options.format;
+	}
+
+	var getInput = function (element) {
+		var input;
+
+		if (element.tagName.toLowerCase() === 'input') {
+			input = element;
 		}
 
-		cleaned_options = jQuery.extend(true, {}, options);
-		delete cleaned_options.postFormat;
-
-		$(this).datetimepicker(cleaned_options).on('dp.change', function(e) {
-			input = getInput( $(this) );
-			classname = $(input).attr('data-hidden-class');
-			if (e.date === false) {
-				value = '';
-			} else {
-				value = e.date.format(options.postFormat);
-			}
-			$('input.' + classname).val(value);
-		});
-
-		var count = $('input[class^="datetimepicker_"]').length + 1;
-
-		$.each($(this), function(element, value) {
-			input = getInput($(this));
-
-			if ($(this).data('DateTimePicker').date() === null) {
-				value = '';
-			} else {
-				value = $(this).data('DateTimePicker').date().format(options.postFormat);
-				$(this).data('DateTimePicker').viewDate($(this).data('DateTimePicker').date());
-			}
-
-			if ($(input).next().length > 0 && $(input).next().is('[class*="datetimepicker_"]')) {
-				return true;
-			}
-
-			$(input).after( $('<input>').attr('type', 'hidden').attr('name', $(input).attr('name')).val( value ).addClass('datetimepicker_' + count) );
-			$(input).attr('data-hidden-class', 'datetimepicker_' + count);
-			$(input).removeAttr('name');
-			count++;
-		})
+		return input;
 	};
-})(jQuery);
+
+	var cleanedOptions = Object.assign({}, options);
+	delete cleanedOptions.postFormat;
+
+	var elements = document.querySelectorAll(selector);
+
+	elements.forEach(function (element) {
+		if (element.dataset.initialized !== 'true') {
+			const datepicker = new tempusDominus.TempusDominus(element, cleanedOptions);
+			element._tdPicker = datepicker; // Store the datepicker instance
+			element.dataset.initialized = 'true';
+
+			element.addEventListener('change', function (e) {
+				var input = getInput(this);
+				var classname = input.dataset.hiddenClass;
+
+				var value;
+				if (e.date === false) {
+					value = '';
+				} else {
+					value = this._tdPicker.viewDate.format(options.postFormat);
+				}
+				document.querySelector('input.' + classname).value = value;
+			});
+		}
+
+	});
+
+	var count = document.querySelectorAll('input[class^="datetimepicker_"]').length + 1;
+
+	elements.forEach(function (element) {
+		var input = getInput(element);
+
+		var currentDate;
+		if (element.value === '') {
+			currentDate = null;
+		} else {
+
+			const datepicker = element._tdPicker;
+			currentDate = datepicker.viewDate;
+		}
+		var value;
+		if (currentDate === null) {
+			value = '';
+		} else {
+			value = currentDate.format(options.postFormat);
+			element._tdPicker.viewDate = currentDate;
+		}
+
+		if (input.nextElementSibling && input.nextElementSibling.className.includes('datetimepicker_')) {
+			return;
+		}
+
+		var hiddenInput = document.createElement('input');
+		hiddenInput.type = 'hidden';
+		hiddenInput.name = input.name;
+		hiddenInput.value = value;
+		hiddenInput.className = 'datetimepicker_' + count;
+
+		input.parentNode.insertBefore(hiddenInput, input.nextSibling);
+		input.dataset.hiddenClass = 'datetimepicker_' + count;
+		input.removeAttribute('name');
+		count++;
+	});
+}
