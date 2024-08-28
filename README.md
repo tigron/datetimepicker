@@ -1,5 +1,5 @@
 # Tigron Datetimepicker extension
-This in an extension to the [Eonasdan Datetimepicker](https://github.com/Eonasdan/bootstrap-datetimepicker/)
+This in an extension to the [Eonasdan tempus-dominus](https://github.com/Eonasdan/tempus-dominus)
 plugin.
 
 ## Description
@@ -10,12 +10,13 @@ in the format set in 'postFormat'.
 This makes it easier to parse the datetime after POST.
 
 	$('.datepicker').tigronDatetimepicker({
-		'format': 'DD/MM/YYYY HH:mm',
-		'extraFormats': [ 'YYYY-MM-DD HH:mm' ],
+		localization: {
+			format: 'dd/MM/yyyy'
+		},
 		'postFormat': 'YYYY-MM-DD HH:mm'
 	});
 
-All other options remain the same. Please check the [Eonasdan Datetimepicker manual](http://eonasdan.github.io/bootstrap-datetimepicker/)
+All other options remain the same. Please check the [Eonasdan Datetimepicker manual](https://getdatepicker.com/)
 for more instructions
 
 ## Installation
@@ -26,16 +27,18 @@ Installation with bower:
 
 include the following line in your project:
 
-	<link rel="stylesheet" href="/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" href="/eonasdan--tempus-dominus/dist/css/tempus-dominus.min.css" />
 
 	<script src="/moment/min/moment.min.js"></script>
-	<script src="/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="/popperjs--core/dist/umd/popper.min.js"></script
+	<script src="/eonasdan--tempus-dominus/dist/js/tempus-dominus.min.js"></script>
 	<script src="/tigron-datetimepicker/js/tigron-datetimepicker.js"></script>
 
 Activate:
 
 	$('.datepicker').tigronDatetimepicker({
-		'format': 'DD/MM/YYYY HH:mm',
-		'extraFormats': [ 'YYYY-MM-DD HH:mm' ],
+		localization: {
+			format: 'dd/MM/yyyy'
+		},
 		'postFormat': 'YYYY-MM-DD HH:mm'
 	});
