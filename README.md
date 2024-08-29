@@ -9,7 +9,7 @@ extension will create a hidden input field that contains the selected datetime
 in the format set in 'postFormat'.
 This makes it easier to parse the datetime after POST.
 
-	$('.datepicker').tigronDatetimepicker({
+	tigronDatetimepicker('.datepicker', {
 		localization: {
 			format: 'dd/MM/yyyy'
 		},
@@ -29,14 +29,13 @@ include the following line in your project:
 
 	<link rel="stylesheet" href="/eonasdan--tempus-dominus/dist/css/tempus-dominus.min.css" />
 
-	<script src="/moment/min/moment.min.js"></script>
 	<script src="/popperjs--core/dist/umd/popper.min.js"></script
 	<script src="/eonasdan--tempus-dominus/dist/js/tempus-dominus.min.js"></script>
-	<script src="/tigron-datetimepicker/js/tigron-datetimepicker.js"></script>
+	<script src="/tigron-datetimepicker/dist/js/tigron-datetimepicker.js"></script>
 
 Activate:
 
-	$('.datepicker').tigronDatetimepicker({
+	tigronDatetimepicker('.datepicker', {
 		localization: {
 			format: 'dd/MM/yyyy'
 		},
