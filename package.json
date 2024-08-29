@@ -1,0 +1,28 @@
+{
+	"name": "tigron-datetimepicker",
+	"version": "1.0.0",
+	"description": "Extension to the eonasdan/tempus-dominus plugin",
+	"main": "index.js",
+	"author": "Sander Van keer <sander@tigron.be>",
+	"license": "ISC",
+	"scripts": {	
+		"test": "echo \"Error: no test specified\" && exit 1"
+  	},
+	"homepage": "https://github.com/tigron/datetimepicker",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tigron/datetimepicker.git"
+	},
+	"keywords": [
+		"eonasdan",
+		"datepicker",
+		"datetimepicker",
+		"date",
+		"time",
+		"tigron"
+	],
+	"bugs": "https://github.com/tigron/datetimepicker/issues",
+	"dependencies": {
+		"@eonasdan/tempus-dominus": "^6.9.10"
+	}
+}
