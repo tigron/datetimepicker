@@ -21,9 +21,9 @@ for more instructions
 
 ## Installation
 
-Installation with bower:
+Installation with npm:
 
-  `bower install tigron-datetimepicker`
+  `npm install tigron-datetimepicker`
 
 include the following line in your project:
 
