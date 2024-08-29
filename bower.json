@@ -9,7 +9,7 @@
 	"description": "Extension for eonasdan-bootstrap-datetimepicker to set 'postFormat'",
 	"main": "js/tigron-datetimepicker.js",
 	"dependencies": {
-		"eonasdan-bootstrap-datetimepicker": "6.*"
+		"bootstrap-datetimepicker-eonasdan": "6.*"
 	},
 	"moduleType": [
 		"globals"
