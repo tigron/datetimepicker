@@ -17,7 +17,6 @@ function tigronDatetimepicker(selector, options) {
 	delete cleanedOptions.postFormat;
 
 	var elements = document.querySelectorAll(selector);
-
 	elements.forEach(function (element) {
 		if (element.dataset.initialized !== 'true') {
 			const datepicker = new tempusDominus.TempusDominus(element, cleanedOptions);
@@ -29,7 +28,7 @@ function tigronDatetimepicker(selector, options) {
 				var classname = input.dataset.hiddenClass;
 
 				var value;
-				if (e.date === false) {
+				if (e.date === false || this.value === '') {
 					value = '';
 				} else {
 					value = this._tdPicker.viewDate.format(options.postFormat);
